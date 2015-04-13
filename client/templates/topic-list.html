@@ -1,0 +1,57 @@
+<template name="topicList">
+  <div class="topic-list-layout row">
+    <!-- <h3 class="page-title">Current Conversations</h3> -->
+    {{#if currentUser}}
+    <div class="submit-topic col-md-2">
+      <h5>Welcome!</h5>
+      <p>I hope you enjoy your time here and leave with some new ideas and perspectives. If you'd like to propose a topic, simply fill in the box below with your idea!</p>
+      <form class="new-topic">
+        <input type="text" name="title" placeholder="New topic" />
+        <textarea name="description" placeholder="Description"></textarea>
+        <input class="btn btn-submit" id="new-topic-submit" type="submit" value="Submit" />
+      </form>
+    </div>
+    {{else}}
+    <div class="submit-topic col-md-2">
+      <h5>Welcome!</h5>
+      <p>I hope you enjoy your time here and leave with some new ideas and perspectives. Please log in or sign up for an account to contribute to the conversation!</p>
+    </div>
+    {{/if}}
+    <div class="topic-list col-md-10">
+      {{#if thereAreTopics topics}}
+      <ul>
+        {{#each topics}}
+          {{> topicItem}}
+        {{/each}}
+      </ul>
+      {{else}}
+      <ul class="empty-topic-list">
+        <li class="topic-item">Congratulations! You have the opportunity to post one of the first topics..mazel tov! In case you're scratching your head wondering to post about, I've come up with this helpful list of party starters:
+          <ul>
+            <li>How do I make friends now that I've left college?</li>
+            <li>Do we owe it to future generations to mitigate climate change if we don't have to bring them into existence?</li>
+            <li>What should post-post-modernism be called?</li>
+            <li>Where should my morality come from?</li>
+            <li>How can I be happier? Is asking that question making me unhappy?</li>
+          </ul>
+
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="topicItem">
+  <li class="topic-item">
+    <div class="topic-item-header">
+      <span class="topic-item-info">{{username}} - {{displayTopicDate _id createdAt}}</span>
+      <span class="topic-item-comments">{{numberTopics _id}}</span>
+    </div>
+    <div class="topic-item-preview">
+      <a href={{path}}{{_id}}>{{title}}</a>
+      <span class="preview-text">{{description}}</span>
+      <!-- <button class="delete">&times;</button> -->
+    </div>
+  </li>
+</template>

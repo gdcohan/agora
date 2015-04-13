@@ -1,0 +1,15 @@
+<template name="ApplicationLayout">
+  <div class="container">
+    <header>
+      {{> loginButtons}}
+      <div class="site-title">
+        <a href="/">Agora</a>
+      </div>
+    </header>
+    <div class="content-container">
+      <div class="content-layout">
+        {{> yield}}
+      </div>
+    </div>
+  </div>
+</template>

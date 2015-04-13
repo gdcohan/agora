@@ -1,0 +1,397 @@
+/* CSS declarations go here */
+body {
+  background: #eff3fa;
+  overflow-y: scroll;
+  height: 100%;
+  font-size: 17px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: 0;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.container {
+  padding-top: 50px;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  background: #FaF9EF;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 600;
+  background-color: #fff;
+  border-bottom: 1px solid #c2c9d4;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site-title a {
+  margin-right: 20px;
+  padding-top: 8px;
+  text-align: left;
+  position: relative;
+  display: block;
+  line-height: 1.5;
+  text-decoration: none;
+  font-size: 100%;
+  color: #2e9fff;
+  vertical-align: baseline;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#login-buttons .login-close-text {
+  color: black;
+  border: 1px solid #BCBCBC;
+  padding: 4px;
+}
+
+#login-buttons a {
+  font-size: 14px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#login-buttons #login-dropdown-list {
+  right: 4px;
+  left: inherit;
+  top: 31px;
+}
+
+.login-link-and-dropdown-list {
+  padding: 3px;
+}
+
+#login-buttons .login-button {
+  background-color: #2e9fff;
+}
+
+.content-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.content-layout {
+  margin-left: 15px;
+  padding: 20px;
+}
+
+#login-buttons {
+  border-radius: 3px;
+  float: right;
+  margin-right: 50px;
+  margin-top: 6px;
+  padding: 7px;
+  text-transform: uppercase;
+  background-color: #2e9fff;
+  color: #FFF;
+}
+
+.site-title {
+  margin-left: 50px;
+  margin-right: 5px;
+  height: 50px;
+  padding: 0 10px 0 15px;
+  border: 0;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  left: 0;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.topic-description {
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgba(46, 154, 255, 0.79);
+  padding: 20px;
+  box-shadow: 0px 0px 1px 1px rgba(37, 126, 203, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.submit-topic {
+  border: #eee solid 1px;
+  padding: 10px;
+  background-color: rgb(46, 159, 255);
+  color: #FFF;
+}
+
+.submit-topic h5 {
+  text-align: center;
+  font-size: 15px;
+}
+
+.submit-topic p {
+  font-size: 13px;
+}
+
+.topic-list {
+  border: #eee solid 1px;
+}
+
+.empty-topic-list {
+  padding: 10px 10px 0 10px;
+}
+
+.empty-topic-list .topic-item {
+  padding: 10px;
+  border: none;
+}
+
+.empty-topic-list .topic-item li {
+  font-size: 14px;
+}
+
+.empty-topic-list .topic-item li:first-child {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.empty-topic-list .topic-item li:last-child {
+  border: none;
+}
+
+.topic-item {
+  padding: 0;
+}
+
+.topic-item-header {
+  padding: 15px 15px 10px 15px;
+  font-size: 12px;
+  border-bottom:1px solid #eee;
+}
+
+.topic-item-info {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.topic-item-comments {
+  position: absolute;
+  right: 40px;
+}
+
+.topic-item-preview {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.preview-text {
+  display: block;
+  font-size: 14px;
+  color: #777;
+  padding-left: 10px;
+}
+
+.topic-item a {
+  font-weight: bold;
+  color: rgb(46, 159, 255);
+}
+
+.show-topic {
+  position: relative;
+}
+
+.home-link {
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.post-item {
+  padding: 10px;
+}
+
+.post-user-description p {
+  display: inline-block;
+}
+
+.post-user-description p strong {
+  text-transform: capitalize;
+}
+
+.post-user-description span {
+  margin-left: 10px;
+  font-size: 11px;
+  color: gray;
+}
+
+.post-item p.post-content {
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+.new-topic {
+  color: #000;
+}
+
+.new-topic input {
+  width: 100%;
+  border: 1px solid rgb(13, 124, 219);
+  box-shadow: 0 0 2px 2px rgb(33, 141, 225);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.new-topic textarea {
+  margin-top: 10px;
+  width: 100%;
+  resize: none;
+  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid rgb(13, 124, 219);
+  box-shadow: 0 0 2px 2px rgb(33, 141, 225);
+}
+
+#new-topic-submit {
+  float: right;
+  background-color: rgba(0, 224, 76, 0.82);
+  border: 1px solid rgb(53, 195, 53);
+  color: white;
+}
+
+a#signup-link.additional-link {
+  color: black;
+  border: 1px solid #BCBCBC;
+  padding: 4px;
+}
+
+.submit-post {
+  padding: 10px;
+}
+
+.new-post textarea {
+  display: block;
+  padding: 10px;
+  width: 90%;
+  margin-left: 4%;
+  margin-top: 10px;
+  resize: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.new-post input[type="submit"] {
+  position: absolute;
+  right: 5%;
+  margin-right: 20px;
+  margin-top: 10px;
+  background-color: rgb(85, 172, 253);
+  border: 1px solid rgb(46, 154, 255);
+  color: white;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+form {
+/*  margin-top: 10px;
+  margin-bottom: -10px;
+  position: relative;*/
+}
+
+.new-task input {
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding-right: 80px;
+  font-size: 1em;
+}
+
+.new-task input:focus{
+  outline: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.delete {
+  float: right;
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  border: none;
+  position: relative;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #eee solid 1px;
+}
+
+li .text {
+  margin-left: 10px;
+}
+
+li.checked {
+  color: #888;
+}
+
+li.checked .text {
+  text-decoration: line-through;
+}
+
+li.private {
+  background: #eee;
+  border-color: #ddd;
+}
+
+header .hide-completed {
+  float: right;
+}
+
+.toggle-private {
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  li {
+    padding: 12px 15px;
+  }
+
+  .search {
+    width: 150px;
+    clear: both;
+  }
+
+  .new-task input {
+    padding-bottom: 5px;
+  }
+}

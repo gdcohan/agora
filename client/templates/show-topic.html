@@ -1,0 +1,30 @@
+<template name="showTopic">
+  <div class="show-topic">
+    <h3 class="page-title">{{title}}</h3>
+    <a class="home-link" href="/">Back to Topics</a>
+    <div class="topic-description">
+      {{description}}
+    </div>
+    {{#each posts}}
+      {{> postItem}}
+    {{/each}}
+    {{#if currentUser}}
+    <div class="submit-post">
+      <form class="new-post">
+        <label for="post">What do you think?</label>
+        <textarea name="post" placeholder="Well..."></textarea>
+        <input class="btn" type="submit" value="Post" />
+      </form>
+    </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="postItem">
+  <div class="post-item">
+    <div class="post-user-description">
+      <p><strong>{{username}}</strong> says:</p><span>{{displayPostDate createdAt}}</span>
+    </div>
+    <p class="post-content">{{text}}</p>
+  </div>
+</template>
