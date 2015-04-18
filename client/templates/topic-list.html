@@ -18,26 +18,12 @@
     </div>
     {{/if}}
     <div class="topic-list col-md-10">
-      {{#if thereAreTopics topics}}
+      <h4 class="current-conversations">Current Conversations</h4>
       <ul>
         {{#each topics}}
           {{> topicItem}}
         {{/each}}
       </ul>
-      {{else}}
-      <ul class="empty-topic-list">
-        <li class="topic-item">Congratulations! You have the opportunity to post one of the first topics..mazel tov! In case you're scratching your head wondering to post about, I've come up with this helpful list of party starters:
-          <ul>
-            <li>How do I make friends now that I've left college?</li>
-            <li>Do we owe it to future generations to mitigate climate change if we don't have to bring them into existence?</li>
-            <li>What should post-post-modernism be called?</li>
-            <li>Where should my morality come from?</li>
-            <li>How can I be happier? Is asking that question making me unhappy?</li>
-          </ul>
-
-        </li>
-      </ul>
-      {{/if}}
     </div>
   </div>
 </template>

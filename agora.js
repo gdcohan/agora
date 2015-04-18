@@ -10,8 +10,8 @@ if (Meteor.isClient) {
       return Topics.find({}, {sort: {createdAt: -1}});
     },
 
-    thereAreTopics: function(topics) {
-      return topics.count() > 2
+    thereAreNoTopics: function(topics) {
+      return topics.count() < 2
     }
   });
 
