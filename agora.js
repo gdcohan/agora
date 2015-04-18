@@ -31,6 +31,9 @@ if (Meteor.isClient) {
   Template.topicItem.events({
     "click .delete": function() {
       Meteor.call("deleteTopic", this._id);
+    },
+    "click .topic-item": function() {
+      window.location = "/topics/" + this._id;
     }
   });
 

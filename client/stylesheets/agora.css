@@ -183,6 +183,11 @@ a {
 
 .topic-item {
   padding: 0;
+  cursor: pointer;
+}
+
+.topic-item:hover {
+  border: 2px solid rgb(153, 187, 201);
 }
 
 .topic-item-header {
