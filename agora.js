@@ -75,6 +75,7 @@ if (Meteor.isClient) {
   Template.showTopic.events({
     "submit .new-post": function(event) {
       var text = event.target.post.value;
+      text = $($.parseHTML(text)).text();
       Meteor.call("addPost", text, this._id);
       event.target.post.value = "";
       return false;

@@ -257,6 +257,7 @@ a {
 .post-item p.post-content {
   padding-left: 10px;
   font-size: 17px;
+  white-space: pre-wrap;
 }
 
 .new-topic {
