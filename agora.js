@@ -8,10 +8,6 @@ if (Meteor.isClient) {
   Template.topicList.helpers({
     topics: function() {
       return Topics.find({}, {sort: {createdAt: -1}});
-    },
-
-    thereAreNoTopics: function(topics) {
-      return topics.count() < 2
     }
   });
 
@@ -39,30 +35,19 @@ if (Meteor.isClient) {
 
   Template.topicItem.helpers({
     displayTopicDate: function(id, createdAt) {
+      function dateDisplayString(dateObj) {
+        if (dateObj.toDateString() === new Date().toDateString()) return "Today";
+        return dateObj.toLocaleDateString();
+      };
+
       var latestPost = Posts.find({topicId: id}, {limit: 1}, {sort: {createdAt: -1}}).fetch();
-      if (latestPost.length > 0) {
-        var date = latestPost[0].createdAt;
-        if (date.toDateString() === new Date().toDateString()) {
-          return "Today";
-        } else {
-          return date.toLocaleDateString();
-        }
-      } else {
-        if (createdAt.toDateString() === new Date().toDateString()) {
-          return "Today";
-        } else {
-          return createdAt.toLocaleDateString();
-        }
-      }
+      if (latestPost.length > 0) return dateDisplayString(latestPost[0].createdAt);
+      return dateDisplayString(createdAt);
     },
 
-    numberTopics: function(id) {
+    numberOfPosts: function(id) {
       var numPosts = Posts.find({topicId: id}).count();
-      if (numPosts === 1) {
-        return "1 post";
-      } else {
-        return numPosts + " posts";
-      }
+      return numPosts + " post" + (numPosts === 1 ? "" : "s")
     }
   })
 
@@ -84,11 +69,8 @@ if (Meteor.isClient) {
 
   Template.postItem.helpers({
     displayPostDate: function(date) {
-      if (date.toDateString() === new Date().toDateString()) {
-        return date.toLocaleTimeString();
-      } else {
-        return date.toLocaleDateString();
-      }
+      if (date.toDateString() === new Date().toDateString()) return date.toLocaleTimeString();
+      return date.toLocaleDateString();
     }
   });
 
@@ -112,27 +94,31 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  addTopic: function(title, description) {
-    if (! Meteor.userId()) {
+  checkAuthorization: function(){
+    if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
+  },
+
+  addTopic: function(title, description) {
+    checkAuthorization();
 
     Topics.insert({
       title: title,
-      path: "/topics/", //should url encode path
+      path: "/topics/",
       owner: Meteor.userId(),
       username: Meteor.user().username,
       description: description,
       createdAt: new Date()
     });
   },
+
   deleteTopic: function(topicId) {
     Topics.remove(topicId);
   },
+
   addPost: function(text, topicId) {
-    if (! Meteor.userId()) {
-      throw new Meteor.error("not-authorized");
-    }
+    checkAuthorization();
 
     Posts.insert({
       text: text,
@@ -143,6 +129,7 @@ Meteor.methods({
       topicId: topicId
     });
   },
+
   deletePost: function(postId) {
     Posts.remove(postId);
   }
